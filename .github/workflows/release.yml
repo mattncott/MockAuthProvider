@@ -1,0 +1,13 @@
+name: Release
+
+on:
+  workflow_call:
+
+jobs:
+  release-dotnet:
+    name: Build and Publish Docker Image
+    uses: mattncott/workflows/.github/workflows/release-docker.yml@main
+    with:
+      docker-image-name: mattncott/mockauthprovider
+      registry: hub.docker.com
+    secrets: inherit
