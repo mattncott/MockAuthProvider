@@ -27,11 +27,6 @@ namespace MockAuthProvider.Services
         {
             try 
             {
-                if (request.GrantType != "code")
-                {
-                    throw new NotImplementedException("Only Grant Type code is supported currently");
-                }
-
                 var client = GetClientFromRequest(request);
                 
                 if (client is null)

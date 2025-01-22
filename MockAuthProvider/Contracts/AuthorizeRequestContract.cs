@@ -6,6 +6,5 @@ namespace MockAuthProvider.Contracts
         string RedirectUri,
         string Username,
         string Password,
-        string GrantType = "code",
         bool IsConfidential = false);
 }
