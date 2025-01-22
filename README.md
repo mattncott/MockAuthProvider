@@ -46,3 +46,39 @@ This should contain all the information about any user accounts that you want to
     }
   ],
 ```
+
+## Usage
+
+To use the authentication provider is simple. The following endpoint(s) have been provided:
+
+### /authorize
+This is the main endpoint for the provider. This endpoint will accept a AuthorizeRequestContract which will then be validated. If all criteria is correct an access token and a refresh token will be returned.
+
+The clientId, clientSecret, redirectUri and user data must all match those in the configuration files.
+
+If isConfidential is provided and set to TRUE, then the clientSecret can be omitted.
+
+#### Example Request
+```json
+{
+	"clientId": "TestClient",
+	"clientSecret": "abc123",
+	"isConfidential": false,
+	"redirectUri": "http://localhost/redirect",
+	"username": "testuser",
+	"password": "testpass"
+}
+```
+
+#### Example Response
+If an error occurs then details will be provided in the errorMessage and success will be set to false.
+
+```json
+{
+	"success": true,
+	"accessToken": "...",
+	"refreshToken": "...",
+	"expiresIn": 3600,
+	"errorMessage": null
+}
+```
