@@ -1,5 +1,7 @@
 # MockAuthProvider
 
+[![codecov](https://codecov.io/gh/mattncott/MockAuthProvider/branch/main/graph/badge.svg?token=EZ7sJpMkbx)](https://codecov.io/gh/mattncott/MockAuthProvider)
+
 THIS SHOULD NEVER BE USED IN PRODUCTION. THE INTENTION OF THIS IS FOR TEST AND DEVELOPMENT PURPOSES ONLY!.
 
 This is a Mock OIDC provider that allows for uses to generate test access tokens and refresh tokens for authentication.
