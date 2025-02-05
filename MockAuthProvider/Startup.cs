@@ -3,6 +3,7 @@ using Mattncott;
 using Microsoft.EntityFrameworkCore;
 using MockAuthProvider.Services;
 using MockAuthProvider.Services.Interfaces;
+using OpenIddict.Abstractions;
 
 namespace MockAuthProvider
 {
@@ -65,9 +66,17 @@ namespace MockAuthProvider
                 {
                     options.SetTokenEndpointUris("connect/token");
                     options.SetAuthorizationEndpointUris("connect/authorize");
+                    options.SetUserInfoEndpointUris("connect/userinfo");
+
+                    options.RegisterScopes(
+                        OpenIddictConstants.Scopes.Profile, 
+                        OpenIddictConstants.Scopes.Email, 
+                        OpenIddictConstants.Scopes.OfflineAccess);
+
 
                     options.AllowClientCredentialsFlow();
                     options.AllowAuthorizationCodeFlow();
+                    options.AllowRefreshTokenFlow();
 
                     // Register the signing and encryption credentials.
                     options.AddDevelopmentEncryptionCertificate()
@@ -75,7 +84,8 @@ namespace MockAuthProvider
 
                     options.UseAspNetCore()
                         .EnableTokenEndpointPassthrough()
-                        .EnableAuthorizationEndpointPassthrough();
+                        .EnableAuthorizationEndpointPassthrough()
+                        .EnableUserInfoEndpointPassthrough();
                 });
 
             services.AddHostedService<Worker>();

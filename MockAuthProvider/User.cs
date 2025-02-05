@@ -4,5 +4,8 @@ namespace MockAuthProvider
         Guid Id,
         string Username,
         string Password,
-        string Name);
+        string Name,
+        string Email,
+        string Phone,
+        List<string> Roles);
 }

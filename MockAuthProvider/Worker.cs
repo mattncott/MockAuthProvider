@@ -51,7 +51,7 @@ namespace MockAuthProvider
                             Permissions.GrantTypes.ClientCredentials,
                             Permissions.GrantTypes.RefreshToken,
                             Permissions.Scopes.Profile,
-                            Permissions.Scopes.Email,
+                            Permissions.Scopes.Email
                         }
                     });
                 }
