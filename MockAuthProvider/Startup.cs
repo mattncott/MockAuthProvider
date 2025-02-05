@@ -28,6 +28,14 @@ namespace MockAuthProvider
 
             services.AddMemoryCache();
 
+            services.AddCors(options =>
+                {
+                    options.AddPolicy("AllowAll", builder =>
+                        builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+                });
+
             services.AddDbContext<DbContext>(options =>
             {
                 // Configure Entity Framework Core to use Microsoft SQL Server.
@@ -85,6 +93,8 @@ namespace MockAuthProvider
             }
             
             app.UseRouting();
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
