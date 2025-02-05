@@ -37,6 +37,7 @@ namespace MockAuthProvider
                     {
                         ClientId = client.ClientId,
                         ClientSecret = client.ClientSecret,
+                        ClientType = string.IsNullOrEmpty(client.ClientSecret) ? ClientTypes.Confidential : ClientTypes.Public,
                         RedirectUris = 
                         {
                             new Uri(client.RedirectUri)
@@ -47,7 +48,10 @@ namespace MockAuthProvider
                             Permissions.Endpoints.Authorization,
                             Permissions.Endpoints.Token,
                             Permissions.ResponseTypes.Code,
-                            Permissions.GrantTypes.ClientCredentials
+                            Permissions.GrantTypes.ClientCredentials,
+                            Permissions.GrantTypes.RefreshToken,
+                            Permissions.Scopes.Profile,
+                            Permissions.Scopes.Email,
                         }
                     });
                 }
