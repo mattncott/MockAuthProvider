@@ -37,7 +37,7 @@ namespace MockAuthProvider
                     {
                         ClientId = client.ClientId,
                         ClientSecret = client.ClientSecret,
-                        ClientType = string.IsNullOrEmpty(client.ClientSecret) ? ClientTypes.Confidential : ClientTypes.Public,
+                        ClientType = !string.IsNullOrEmpty(client.ClientSecret) ? ClientTypes.Confidential : ClientTypes.Public,
                         RedirectUris = 
                         {
                             new Uri(client.RedirectUri)
