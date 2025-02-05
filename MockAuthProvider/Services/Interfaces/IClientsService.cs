@@ -1,9 +1,10 @@
-using MockAuthProvider.Contracts;
+// using MockAuthProvider.Contracts;
 
 namespace MockAuthProvider.Services.Interfaces
 {
     public interface IClientsService
     {
-        AuthorizeResponseContract Authorize(AuthorizeRequestContract request);
+        IEnumerable<Client> GetAllClients();
+        User GetUser();
     }
 }
