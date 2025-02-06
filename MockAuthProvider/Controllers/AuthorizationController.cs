@@ -38,6 +38,7 @@ namespace MockAuthProvider.Controllers
                 new(Claims.Subject, user.Id.ToString()),
                 new(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new(ClaimTypes.Name, user.Username),
+                new(Claims.Audience, request.ClientId),
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, OpenIddictServerAspNetCoreDefaults.AuthenticationScheme);
@@ -95,7 +96,6 @@ namespace MockAuthProvider.Controllers
             }
             else if (request.IsAuthorizationCodeGrantType())
             {
-                // Retrieve the claims principal stored in the authorization code
                 claimsPrincipal = (await HttpContext.AuthenticateAsync(OpenIddictServerAspNetCoreDefaults.AuthenticationScheme)).Principal;
             }
             else 

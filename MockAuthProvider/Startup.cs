@@ -50,7 +50,6 @@ namespace MockAuthProvider
             });
 
             services.AddOpenIddict()
-
                 // Register the OpenIddict core components.
                 .AddCore(options =>
                 {
@@ -81,6 +80,8 @@ namespace MockAuthProvider
                     // Register the signing and encryption credentials.
                     options.AddDevelopmentEncryptionCertificate()
                         .AddDevelopmentSigningCertificate();
+
+                    options.DisableAccessTokenEncryption();
 
                     options.UseAspNetCore()
                         .EnableTokenEndpointPassthrough()
