@@ -1,0 +1,10 @@
+coverage:
+  status:
+    patch: false
+  range: 60..80
+  round: nearest
+  precision: 2
+
+ignore:
+  - "**/Migrations/*.cs"
+  - "**/MockAuthProvider.Test/*"

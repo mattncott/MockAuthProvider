@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using MockAuthProvider.Extensions;
 
 namespace MockAuthProvider
 {
@@ -17,6 +16,6 @@ namespace MockAuthProvider
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).RegisterNLog();
+                });
     }
 }

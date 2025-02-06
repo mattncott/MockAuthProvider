@@ -8,3 +8,6 @@ dotnet_diagnostic.CS8602.severity = none
 
 # CS8600: Converting null literal or possible null value to non-nullable type.
 dotnet_diagnostic.CS8600.severity = none
+
+# CS8605: Unboxing a possibly null value.
+dotnet_diagnostic.CS8605.severity = none

@@ -12,18 +12,9 @@ namespace MockAuthProvider.Controllers
         private readonly IClientsService _clientsService;
 
         public UserInfoController(
-            IOpenIddictApplicationManager applicationManager,
             IClientsService clientsService)
-        {
-            _clientsService = clientsService;
-        }
-        // private readonly UserManager<User> _userManager;
+            => _clientsService = clientsService;
 
-        // public UserInfoController(UserManager<User> userManager)
-        //     => _userManager = userManager;
-
-        //
-        // GET: /api/userinfo
         [Authorize(AuthenticationSchemes = OpenIddictServerAspNetCoreDefaults.AuthenticationScheme)]
         [HttpGet("~/connect/userinfo"), HttpPost("~/connect/userinfo"), Produces("application/json")]
         public IActionResult Userinfo()
@@ -55,7 +46,7 @@ namespace MockAuthProvider.Controllers
 
             if (User.HasScope(Scopes.Roles))
             {
-                claims[Claims.Role] = user.Roles;
+                claims[Claims.Role] = user.Role;
             }
 
             // Note: the complete list of standard claims supported by the OpenID Connect specification

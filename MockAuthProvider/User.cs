@@ -7,5 +7,5 @@ namespace MockAuthProvider
         string Name,
         string Email,
         string Phone,
-        List<string> Roles);
+        string Role);
 }
